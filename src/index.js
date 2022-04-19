@@ -15,9 +15,8 @@ console.log('=== Start running Button Machine: ' );
 
 const bm = new BM(code);
 
-const registers = bm.register_entries;
-
 bm.run();
 
 console.log(bm.registers);
 console.log(bm.stack);
+console.log(bm.ram);

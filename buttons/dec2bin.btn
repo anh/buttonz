@@ -1,0 +1,11 @@
+PUSH 43 ; 0: convert 43 to binary expect result: '101011'
+STOR AX ; 1:
+PUSH 2  ; 2: 2 -> stack
+MOD     ; 3: AX mod 2 -> stack
+RSTOR AX; 5: AX -> stack
+PUSH 2  ; 6:  2 -> stack
+IDIV    ; 7: AX integer div 2 -> stack 
+JNZ 1   ; 8: 1
+POP     ; 9
+;; result in STACK in reverse order -> 110101
+;; TODO reverse STACK result

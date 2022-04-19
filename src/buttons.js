@@ -79,6 +79,10 @@ export class ButtonMachine {
     this.infix('DIV', (a,b) => a / b);
   }
 
+  op_IDIV() {
+    this.infix('IDIV', (a,b) => Math.floor(a / b));
+  }
+
   op_MUL() {
     this.infix('MUL', (a,b) => a * b);
   }
