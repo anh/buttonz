@@ -1,4 +1,4 @@
-# Practice LJSTHW: parse Zedashaw's ButtonMachine code 
+# Practice LJSTHW: parse Zedshaw's ButtonMachine code 
 
 ## Write button code 
 
