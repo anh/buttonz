@@ -5,3 +5,5 @@ PUSH 1 ; In line comment
 
 POP    ;; more comment 
 
+STOR AX
+
