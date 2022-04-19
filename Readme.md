@@ -2,7 +2,7 @@
 
 ## Write button code 
 
-See sample button file at [buttons/sqrt2.btn].  It has simple format:
+See sample button file at [buttons/sqrt2.btn](buttons/sqrt2.btn).  It has simple format:
 
 OPERATION DATA ;INLINE COMMENT
 
