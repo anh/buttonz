@@ -1,0 +1,20 @@
+{
+  "name": "buttonz",
+  "version": "0.0.1",
+  "description": "Exercise for parsing button code for Zedshaw's ButtonMachine",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "ava",
+    "sqrt2": "node src/index.js buttons/sqrt2.btn"
+  },
+  "keywords": [
+    "ljsthw",
+    "button machine"
+  ],
+  "author": "anh <github.com/anh>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^4.2.0"
+  }
+}
