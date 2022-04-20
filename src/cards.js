@@ -23,8 +23,8 @@ export const parse_buttons = (file) => {
         if (data == undefined) {
             result.push([op]);
         } else {
-					  const num = parseInt(data, 10)
-					  let arg = isNaN(num) ? data : num 
+            const num = parseInt(data, 10)
+            let arg = isNaN(num) ? data : num
             result.push([op, arg]);
         }
     }
