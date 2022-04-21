@@ -39,7 +39,7 @@ export const parse_buttons = (file) => {
     }
 
     let result = [];
-    for (const line of lines) {
+    for (let line of lines) {
         let [code, comment] = line.split(";", 1);
         let [op, data] = code.trim().split(/\s+/, 2);
 
@@ -59,23 +59,42 @@ export const parse_buttons = (file) => {
     // === build map of @label => index to jump
     // 1. Get label index
     const labels_idx = result
-        // do mapping first to keep index order
-        .map((tokens, index) => [tokens[0], index])
-        // filter to get lables
-        .filter(([token, index]) => token[0] === '@') //
-        // all label with be remove, use labels' own index (in its  own label list) to adjust target line
-        .map(([token, index], label_index) => [token, index - label_index])
+        .map((tokens, index) => [tokens[0], index]) // do mapping first to keep index order
+        .filter(([token, index]) => token[0] === '@') // filter to get lables
+        .map(([token, index], label_index) => [token, index - label_index]) // use labels' own index (in its  own label list) to adjust target line
 
-    // 2. Construct jump table
+
+    // 2. Check if a label was redefined
+    let labels_count = {}
+    labels_idx.map(([token, target]) => {
+        if (labels_count[token] == undefined)
+            labels_count[token] = 1
+        else
+            labels_count[token] += 1;
+    });
+
+    for (let [label , count] of Object.entries(labels_count)) {
+        if (count > 1) {
+            console.error(`Label ${label} was redefined`);
+            throw new Error('Label redefined');
+        }
+    }
+
+    // 3. Construct jump table
     const labels_map = new Map(labels_idx);
     console.log('Label to jump MAP:', labels_map);
 
-    // 3. Replace @label with jump index
+    // 4. Replace @label with jump index
     result = result
         .filter(tokens => tokens[0][0] !== '@') // remove label line
         .map(tokens => {
             if (JUMPS.includes(tokens[0])) {
-                return [tokens[0], labels_map.get(tokens[1])];
+                const target = labels_map.get(tokens[1]);
+                if (target === undefined) {
+                    console.error(`Jump to non exist label ${tokens[1]}`);
+                    throw new Error('Non-exist label');
+                }
+                return [tokens[0], label];
             }
             return tokens;
         })

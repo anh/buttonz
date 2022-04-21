@@ -1,0 +1,3 @@
+;; Jump to non-exist label
+PUSH 1 
+JUMP @404 ; non exist label

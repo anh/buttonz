@@ -1,0 +1,7 @@
+;; Redefine label 
+PUSH 1
+@label
+JUMP @label
+POP 
+@label       ; redefine label 
+HALT
