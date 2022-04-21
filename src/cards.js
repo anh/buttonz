@@ -94,7 +94,7 @@ export const parse_buttons = (file) => {
                     console.error(`Jump to non exist label ${tokens[1]}`);
                     throw new Error('Non-exist label');
                 }
-                return [tokens[0], label];
+                return [tokens[0], target];
             }
             return tokens;
         })
