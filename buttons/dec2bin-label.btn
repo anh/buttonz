@@ -1,0 +1,15 @@
+;Convert 43 to binary expect result: '101011'
+;; use label for jump
+PUSH 43     ; 
+@loop
+STOR AX     ; 
+PUSH 2      ; 
+MOD         ;
+POKE 1      ;
+RSTOR AX    ;
+PUSH 2      ;
+IDIV        ;
+JNZ @loop   ;
+POP         ;
+;; result in STACK in reverse order -> 110101
+;; TODO reverse STACK result

@@ -1,0 +1,5 @@
+;; consecutive label 
+PUSH
+@label1
+@label2
+JUMP @label1

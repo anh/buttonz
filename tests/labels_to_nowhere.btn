@@ -1,0 +1,4 @@
+;; label to nowhere
+PUSH
+JUMP @label1
+@label1

@@ -1,0 +1,17 @@
+;; button code to approximate square root of 2
+@start      ; unused
+PUSH 2      ; 2 or any number to compute its square root
+STOR AX     ; 
+PUSH 1      ; initial guess
+STOR BX     ; 
+@loop
+DIV         ; 2/guess 
+RSTOR BX    ; guess
+ADD         ; 2/guess + guess 
+PUSH 2      ; preprare for doing average
+@bbb
+DIV         ; improved guess = (2/guess + guess)/2
+STOR BX
+PUSH 2      ; prepare for next 2 / improve guess
+RSTOR    BX ; add spaces
+JUMP  @loop ; add tabs and spaces
