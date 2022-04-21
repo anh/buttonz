@@ -10,11 +10,3 @@ JNZ 1   ; 8: 1
 POP     ; 9
 ;; result in STACK in reverse order -> 110101
 ;; TODO reverse STACK result
-RSTOR IX ;
-JZ 18 
-POP
-PEEK  1
-JUMP 13
-POP
-PEEK  1
-HALT
