@@ -17,6 +17,6 @@ const bm = new BM(code);
 
 bm.run();
 
-console.log(bm.registers);
-console.log(bm.stack);
-console.log(bm.ram);
+console.log('REGISTERS: ', bm.registers);
+console.log('STACK: ', bm.stack);
+console.log('RAM: ', bm.ram);
