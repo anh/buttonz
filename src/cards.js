@@ -88,7 +88,7 @@ export const parse_buttons = (file) => {
     result = result
         .filter(tokens => tokens[0][0] !== '@') // remove label line
         .map(tokens => {
-            if (JUMPS.includes(tokens[0])) {
+            if (JUMPS.includes(tokens[0]) && tokens[1][0] === '@') {
                 const target = labels_map.get(tokens[1]);
                 if (target === undefined) {
                     console.error(`Jump to non exist label ${tokens[1]}`);
